@@ -9,6 +9,9 @@ require("dotenv").config();
 //import routes
 const authRoutes = require("./routes/auth.route");
 const userRoutes = require('./routes/user.route');
+const categoryRoutes = require('./routes/category.route');
+const productRoutes = require('./routes/product.route');
+
 
 
 //app
@@ -30,9 +33,12 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
 
+
 //routes middleware
 app.use("/api", authRoutes);
 app.use("/api",userRoutes);
+app.use("/api",categoryRoutes);
+app.use("/api",productRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
